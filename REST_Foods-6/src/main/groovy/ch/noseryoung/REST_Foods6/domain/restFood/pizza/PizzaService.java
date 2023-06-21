@@ -3,6 +3,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import lombok.extern.log4j.Log4j2;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 
@@ -13,9 +14,22 @@ import java.util.List;
 public class PizzaService {
     @Autowired
     private PizzaRepository repository;
-    public List<Pizza> getAllPizzas() {
+    public List<Pizza> getAllPizzas(String filterName) {
         log.info("All drink shown");
-        return repository.findAll();
+        List<Pizza> pizzas;
+        List<Pizza> filteredPizzas = new ArrayList<>();
+        pizzas = repository.findAll();
+        if (filterName != null){
+            for (Pizza pizza: pizzas) {
+                if (pizza.getPizzaName().equals(filterName)){
+                    filteredPizzas.add(pizza);
+                }
+            }
+            return filteredPizzas;
+        }else {
+            return pizzas;
+        }
+
     }
 
     public Optional<Pizza> getOnePizza(Integer id) {
