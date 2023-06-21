@@ -1,13 +1,15 @@
 package ch.noseryoung.REST_Foods6.domain.restFood.pizza;
-
-import ch.noseryoung.REST_Foods6.domain.restFood.drinks.DrinkRepository;
-import ch.noseryoung.REST_Foods6.domain.restFood.drinks.Drinks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import lombok.extern.log4j.Log4j2;
+
+import java.util.Optional;
+
 
 import java.util.List;
 
 @Service
+@Log4j2
 public class PizzaService {
     @Autowired
     private PizzaRepository repository;
@@ -16,26 +18,26 @@ public class PizzaService {
         return repository.findAll();
     }
 
-    public Pizza getOnePizza(Integer id) {
+    public Optional<Pizza> getOnePizza(Integer id) {
         log.info(id + " drink found");
         return repository.findById(id); //error bc its not connected to the db
     }
 
-    public Pizza postADrink(Pizza pizza) {
+    public Pizza postAPizza(Pizza pizza) {
         log.info(pizza + " created");
         return repository.save(pizza);
     }
 
-    public Drinks putAPizza(Pizza pizza, Integer id)  {
+    public Optional<Pizza> putAPizza(Pizza pizza, Integer id)  {
         if(repository.existsById(id)) {
-            pizza.setId(id);
-            return repository.save(pizza);
+            pizza.setPizzaID(id);
+            return Optional.of(repository.save(pizza));
         }
         return repository.findById(id); //error bc its not connected to the db
 
     }
 
-    public void deleteADrink(Integer id) {
+    public void deleteAPizza(Integer id) {
         log.info(id + " Drink deleted");
         repository.deleteById(id);
     }
