@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Set;
 @Entity
 @Data
-@Table(name = "RESTFOOD_roles")
+@Table(name = "restfood_roles")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class Role {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "RESTFOOD_roles_authorities",
+            name = "restfood_roles_authorities",
             joinColumns = {
                     @JoinColumn(name = "id_role", referencedColumnName = "id_role"),
             },

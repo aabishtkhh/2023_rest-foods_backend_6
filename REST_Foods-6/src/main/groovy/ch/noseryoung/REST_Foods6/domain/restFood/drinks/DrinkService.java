@@ -13,17 +13,17 @@ public class DrinkService {
     private DrinkRepository repository;
 
     public List<Drinks> getAllDrinks() {
-        log.info("All drink shown");
+        log.info("All drinks shown");
         return repository.findAll();
     }
 
     public Drinks getOneDrink(Integer id) throws RestFoodException {
         log.info(id + " drink found");
-        return repository.findById(id).orElseThrow(() -> new RestFoodException("ID "+ id +" not found"));  //error bc its not connected to the db
+        return repository.findById(id).orElseThrow(() -> new RestFoodException("ID "+ id +" not found"));
     }
 
     public Drinks postADrink(Drinks drinks) {
-        log.info(drinks + " created");
+        log.info(drinks + " drink created");
         return repository.save(drinks);
     }
 
@@ -32,13 +32,11 @@ public class DrinkService {
             drink.setDrinkID(id);
             return repository.save(drink);
         }
-        return repository.findById(id).orElseThrow(() -> new RestFoodException("ID "+ id +" not found")); //error bc its not connected to the db
-
+        return repository.findById(id).orElseThrow(() -> new RestFoodException("ID "+ id +" not found"));
     }
 
     public void deleteADrink(Integer id) {
-        log.info(id + " Drink deleted");
+        log.info(id + " drink deleted");
         repository.deleteById(id);
     }
-
 }

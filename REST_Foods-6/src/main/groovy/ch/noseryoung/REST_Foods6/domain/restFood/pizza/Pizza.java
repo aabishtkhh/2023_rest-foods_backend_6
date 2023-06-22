@@ -7,7 +7,6 @@ import javax.persistence.*;
 @Entity
 @Data
 public class Pizza {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer pizzaID;

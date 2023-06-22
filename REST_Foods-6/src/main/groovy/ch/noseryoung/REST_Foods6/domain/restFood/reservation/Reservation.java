@@ -9,14 +9,12 @@ import javax.persistence.Id;
 @Entity
 @Data
 public class Reservation {
-
+    /*needs to be changed*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer reservationID;
     private String name;
     private Integer price;
     private String description;
-    private String category;
     private String image_url;
-    //needs backend -> proper attributes
 }

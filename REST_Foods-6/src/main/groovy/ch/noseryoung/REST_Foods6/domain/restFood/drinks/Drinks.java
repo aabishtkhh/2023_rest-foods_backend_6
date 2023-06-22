@@ -14,7 +14,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 //or @Data
 public class Drinks {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer drinkID;
@@ -26,6 +25,4 @@ public class Drinks {
     private String image_url;
     private Integer size;
 
-
-    //needs backend -> proper attributes
 }

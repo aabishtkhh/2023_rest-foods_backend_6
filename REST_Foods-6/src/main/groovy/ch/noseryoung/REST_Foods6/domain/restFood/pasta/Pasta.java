@@ -1,6 +1,6 @@
 package ch.noseryoung.REST_Foods6.domain.restFood.pasta;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+//or @Data
 public class Pasta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,5 +24,4 @@ public class Pasta {
     private String category;
     private String image_url;
     private Integer size;
-
 }

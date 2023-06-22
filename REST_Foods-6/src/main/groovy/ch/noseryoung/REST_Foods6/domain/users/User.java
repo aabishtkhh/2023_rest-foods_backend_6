@@ -7,11 +7,11 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "RESTFOOD_users")
+@Table(name = "restfood_users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="users_Id")
+    @Column(name="id_user")
     private Integer usrId;
     @Column(name="name")
     private String usrName;
@@ -19,8 +19,8 @@ public class User {
     private String ps;
     @ManyToOne
     @JoinTable(
-            name = "RESTFOOD_users_roles",
-            joinColumns = @JoinColumn (name = "user_Id", referencedColumnName = "users_Id"),
+            name = "restfood_users_roles",
+            joinColumns = @JoinColumn (name = "id_user", referencedColumnName = "id_user"),
             inverseJoinColumns = @JoinColumn
                     (name = "id_role", referencedColumnName = "id_role")
     )

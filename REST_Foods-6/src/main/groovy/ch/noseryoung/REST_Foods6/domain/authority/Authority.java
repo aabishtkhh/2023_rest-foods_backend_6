@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "RESTFOOD_authorities")
+@Table(name = "restfood_authorities")
 public class Authority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
