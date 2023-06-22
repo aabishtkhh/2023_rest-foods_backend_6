@@ -1,11 +1,15 @@
 package ch.noseryoung.REST_Foods6.domain.users;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-@Service
-public class UserService{
 
-/*
+import java.util.Collection;
+
 @Service
 public class UserService implements UserDetailsService {
 
@@ -13,12 +17,12 @@ public class UserService implements UserDetailsService {
     private UserRepository repository;
 
     @Override
-    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException { //check
+    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
         return repository.findByUsrName(name).map(UserDetailsImpl::new)
                 .orElseThrow(() -> new UsernameNotFoundException(name));
     }
 
-    public record UserDetailsImpl(User user) implements UserDetails { //check
+    public record UserDetailsImpl(User user) implements UserDetails {
         @Override
         public Collection<? extends GrantedAuthority> getAuthorities() {
             return user.getUsrRoles().getRoleAuth().stream()
@@ -55,5 +59,5 @@ public class UserService implements UserDetailsService {
         public boolean isEnabled() {
             return true;
         }
-    }*/
+    }
 }

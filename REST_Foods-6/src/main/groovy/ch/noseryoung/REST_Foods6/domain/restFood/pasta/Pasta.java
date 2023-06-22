@@ -10,13 +10,15 @@ import javax.persistence.Id;
 @Entity
 @Data
 public class Pasta {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer pastaID;
-    private String pastaName;
-
+    private String name;
     private Integer price;
+    private String description;
+    private boolean chefs_choice;
+    private String category;
+    private String image_url;
+    private Integer size;
 
-    //needs backend -> proper attributes
 }

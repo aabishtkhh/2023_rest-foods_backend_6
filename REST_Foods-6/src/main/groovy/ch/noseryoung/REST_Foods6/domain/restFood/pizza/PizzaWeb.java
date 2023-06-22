@@ -17,35 +17,35 @@ public class PizzaWeb {
 
     @GetMapping //GET -- READ
     @PreAuthorize("hasAuthority('GET')")
-    @Operation(summary = "Fetches all Drinks", description = "When successful it fetches all Pizzas and returns a JSON-Code with status code 200.")
+    @Operation(summary = "Fetches all Pizza", description = "When successful it fetches all Pizzas and returns a JSON-Code with status code 200.")
     public ResponseEntity<List<Pizza>> allPizza(@RequestParam("name") String filterName) {
         return ResponseEntity.ok().body(service.getAllPizzas(filterName));
     }
 
     @GetMapping(value = "/{pizzaID}") //GET BY ID
     @PreAuthorize("hasAuthority('GET')")
-    @Operation(summary = "Fetches the desired Drink", description = "When successful it fetches the wished Drink and returns the JSON-Code with status code 200.")
+    @Operation(summary = "Fetches the desired Pizza", description = "When successful it fetches the wished Pizza and returns the JSON-Code with status code 200.")
     public ResponseEntity<Optional<Pizza>> onePizza (@PathVariable("pizzaID") Integer id) {
         return ResponseEntity.ok().body(service.getOnePizza(id));
     }
 
     @PostMapping //POST -- CREATE
     @PreAuthorize("hasAuthority('POST')")
-    @Operation(summary = "Creates a Drink", description = "When successful it creates a Drink with the wished values and returns the JSON-Code of created review with status code 200.")
+    @Operation(summary = "Creates a Pizza", description = "When successful it creates a Pizza with the wished values and returns the JSON-Code of created Pizza with status code 200.")
     public ResponseEntity<Pizza> createPizza(@Valid @RequestBody() Pizza pizza) { //@RequestBody = goes in the body (RequestMapping)
         return ResponseEntity.status(HttpStatus.CREATED).body(service.postAPizza(pizza));
     }
 
     @PutMapping(value = "/{pizzaID}") //PUT -- UPDATE
     @PreAuthorize("hasAuthority('PUT')")
-    @Operation(summary = "Updates the wished Review", description = "When successful it updates the review with the wished values and returns the JSON-Code of the updated review with status code 200.")
+    @Operation(summary = "Updates the wished Pizza", description = "When successful it updates the Pizza with the wished values and returns the JSON-Code of the updated Pizza with status code 200.")
     public ResponseEntity<Optional<Pizza>> updatePizza(@Valid @PathVariable("pizzaID")Integer id, @RequestBody Pizza review) {
         return ResponseEntity.status(200).body(service.putAPizza(review, id));
     }
 
     @DeleteMapping(value = "/{pizzaID}") //DELETE -- DELETE
     @PreAuthorize("hasAuthority('DELETE')")
-    @Operation(summary = "Deletes the Review", description = "When successful it deletes the review with status code 200.")
+    @Operation(summary = "Deletes the Pizza", description = "When successful it deletes the review with status code 200.")
     public void deleteDrink(@Valid @PathVariable("pizzaID") Integer id) {
         service.deleteAPizza(id);
     }

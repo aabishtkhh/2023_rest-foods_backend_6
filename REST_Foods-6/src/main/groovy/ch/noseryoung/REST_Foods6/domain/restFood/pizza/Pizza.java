@@ -49,6 +49,4 @@ public class Pizza {
     public void setPrice(Integer price) {
         this.price = price;
     }
-//needs backend -> proper attributes
-
 }

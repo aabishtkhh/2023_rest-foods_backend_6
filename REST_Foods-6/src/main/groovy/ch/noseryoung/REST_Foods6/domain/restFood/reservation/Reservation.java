@@ -13,9 +13,10 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer reservationID;
-    private String reservationName;
-
+    private String name;
     private Integer price;
-
+    private String description;
+    private String category;
+    private String image_url;
     //needs backend -> proper attributes
 }
