@@ -32,17 +32,17 @@ public class PastaService {
         }
     }
 
-    public Drinks getOnePasta(Integer id) throws RestFoodException {
+    public Pasta getOnePasta(Integer id) throws RestFoodException {
         log.info(id + " pasta found");
         return repository.findById(id).orElseThrow(() -> new RestFoodException("ID " + id + " not found"));
     }
 
-    public Drinks postAPasta(Pasta pasta) {
+    public Pasta postAPasta(Pasta pasta) {
         log.info(pasta + " pasta created");
         return repository.save(pasta);
     }
 
-    public Drinks putAPasta(Pasta pasta, Integer id) throws RestFoodException {
+    public Pasta putAPasta(Pasta pasta, Integer id) throws RestFoodException {
         if (repository.existsById(id)) {
             pasta.setPastaID(id);
             return repository.save(pasta);

@@ -6,9 +6,11 @@ import javax.persistence.*;
 
 @Entity
 @Data
+@Table(name = "pizzas")
 public class Pizza {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "pizzaID")
     private Integer pizzaID;
     @Column(name ="name")
     private String pizzaName;

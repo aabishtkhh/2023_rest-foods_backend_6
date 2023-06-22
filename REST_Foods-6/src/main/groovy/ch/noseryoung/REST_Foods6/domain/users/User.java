@@ -11,16 +11,16 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_user")
-    private Integer usrId;
+    @Column(name="user_id")
+    private Integer user_Id;
     @Column(name="name")
     private String usrName;
     @Column(name="password")
     private String ps;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinTable(
             name = "restfood_users_roles",
-            joinColumns = @JoinColumn (name = "id_user", referencedColumnName = "id_user"),
+            joinColumns = @JoinColumn (name = "user_id", referencedColumnName = "user_id"),
             inverseJoinColumns = @JoinColumn
                     (name = "id_role", referencedColumnName = "id_role")
     )

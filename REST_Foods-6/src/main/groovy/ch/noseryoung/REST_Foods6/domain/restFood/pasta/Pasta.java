@@ -2,10 +2,7 @@ package ch.noseryoung.REST_Foods6.domain.restFood.pasta;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -13,6 +10,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 //or @Data
+@Table(name = "pastas")
 public class Pasta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -13,16 +13,19 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 //or @Data
+@Table(name = "drinks")
 public class Drinks {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "drinkID")
     private Integer drinkID;
+    @Column(name = "name")
     private String name;
+    @Column(name = "price")
     private Integer price;
-    private String description;
-    private boolean chefs_choice;
-    private String category;
+    @Column(name = "image_url")
     private String image_url;
+    @Column(name = "size")
     private Integer size;
 
 }
