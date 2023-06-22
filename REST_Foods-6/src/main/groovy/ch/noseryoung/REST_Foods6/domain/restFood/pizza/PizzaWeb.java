@@ -24,7 +24,7 @@ public class PizzaWeb {
     @GetMapping //GET -- READ
     @PreAuthorize("hasAuthority('GET')")
     @Operation(summary = "Fetches all Pizzas", description = "When successful it fetches all pizzas and returns a JSON-Code with the status code 200.")
-    public ResponseEntity<List<Pizza>> allPizza(@RequestParam("name") String filterName) {
+    public ResponseEntity<List<Pizza>> allPizza(@RequestParam(value = "name", required = false) String filterName) {
         return ResponseEntity.ok().body(service.getAllPizzas(filterName));
     }
 

@@ -29,7 +29,7 @@ public class PastaWeb {
     @GetMapping //GET -- READ
     @PreAuthorize("hasAuthority('GET')")
     @Operation(summary = "Fetches all Pastas", description = "When successful it fetches all pastas and returns a JSON-Code with the status code 200.")
-    public ResponseEntity<List<Pasta>> allPizza(@RequestParam("name") String filterName) {
+    public ResponseEntity<List<Pasta>> allPizza(@RequestParam(value = "name", required = false) String filterName) {
         return ResponseEntity.ok().body(service.getAllPastas(filterName));
     }
 
