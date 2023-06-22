@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -12,9 +13,21 @@ public class DrinkService {
     @Autowired
     private DrinkRepository repository;
 
-    public List<Drinks> getAllDrinks() {
+    public List<Drinks> getAllDrinks(String filterName) {
         log.info("All drinks shown");
-        return repository.findAll();
+        List<Drinks> drink;
+        List<Drinks> filteredDrinks = new ArrayList<>();
+        drink = repository.findAll();
+        if (filterName != null){ //it checks if the drink's name is equal to the filteredName
+            for (Drinks drinks: drink) {
+                if (drinks.getName().equals(filterName)){
+                    filteredDrinks.add(drinks); //when matches it adds to the filteredDrinks
+                }
+            }
+            return filteredDrinks;
+        }else {
+            return drink;
+        }
     }
 
     public Drinks getOneDrink(Integer id) throws RestFoodException {

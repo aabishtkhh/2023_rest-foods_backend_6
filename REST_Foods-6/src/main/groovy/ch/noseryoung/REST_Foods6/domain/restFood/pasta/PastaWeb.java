@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * problem: doesnt have a corresponding table
@@ -27,8 +29,8 @@ public class PastaWeb {
     @GetMapping //GET -- READ
     @PreAuthorize("hasAuthority('GET')")
     @Operation(summary = "Fetches all Pastas", description = "When successful it fetches all pastas and returns a JSON-Code with the status code 200.")
-    public ResponseEntity<List<Pasta>> allPasta() {
-        return ResponseEntity.ok().body(service.getAllPastas());
+    public ResponseEntity<List<Pasta>> allPizza(@RequestParam("name") String filterName) {
+        return ResponseEntity.ok().body(service.getAllPastas(filterName));
     }
 
     @GetMapping(value = "/{pastaID}") //GET BY ID
@@ -57,5 +59,23 @@ public class PastaWeb {
     @Operation(summary = "Deletes the Pasta", description = "When successful it deletes the pasta with the status code 200.")
     public void deletePasta(@Valid @PathVariable("pastaID") Integer id) {
         service.deleteAPasta(id);
+    }
+
+    /**
+     * Exceptions:
+     */
+
+    //When ID doesn't exist
+    @ExceptionHandler(RestFoodException.class)
+    public ResponseEntity<String> handlerNoSuchReviewException(RestFoodException re) {
+        log.error("ID not found");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(re.getMessage());
+    }
+
+    //When updating / creating everything has to be filled out
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<String> handlerNoNullReviewException(MethodArgumentNotValidException manve) {
+        log.warn("Fill everything out");
+        return ResponseEntity.status(400).body(Objects.requireNonNull(manve.getFieldError()).getDefaultMessage());
     }
 }

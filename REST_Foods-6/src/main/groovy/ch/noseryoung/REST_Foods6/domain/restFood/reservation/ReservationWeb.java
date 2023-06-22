@@ -7,10 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @Log4j2
@@ -52,5 +54,23 @@ public class ReservationWeb {
     @Operation(summary = "Deletes the Reservation", description = "When successful it deletes the reservation with the status code 200.")
     public void deleteReservation(@Valid @PathVariable("reservationID") Integer id) {
         service.deleteAReservation(id);
+    }
+
+    /**
+     * Exceptions:
+     */
+
+    //When ID doesn't exist
+    @ExceptionHandler(RestFoodException.class)
+    public ResponseEntity<String> handlerNoSuchReviewException(RestFoodException re) {
+        log.error("ID not found");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(re.getMessage());
+    }
+
+    //When updating / creating everything has to be filled out
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<String> handlerNoNullReviewException(MethodArgumentNotValidException manve) {
+        log.warn("Fill everything out");
+        return ResponseEntity.status(400).body(Objects.requireNonNull(manve.getFieldError()).getDefaultMessage());
     }
 }

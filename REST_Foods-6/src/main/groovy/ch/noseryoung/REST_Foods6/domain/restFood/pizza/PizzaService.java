@@ -36,7 +36,6 @@ public class PizzaService {
         }else {
             return pizzas;
         }
-
     }
 
     public Pizza getOnePizza(Integer id) throws RestFoodException {

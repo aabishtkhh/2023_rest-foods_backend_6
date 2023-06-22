@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -14,9 +15,21 @@ public class PastaService {
     @Autowired
     private PastaRepository repository;
 
-    public List<Pasta> getAllPastas() {
+    public List<Pasta> getAllPastas(String filterName) {
         log.info("All pastas shown");
-        return repository.findAll();
+        List<Pasta> pasta;
+        List<Pasta> filteredPastas = new ArrayList<>();
+        pasta = repository.findAll();
+        if (filterName != null){
+            for (Pasta pastas: pasta) {
+                if (pastas.getName().equals(filterName)){
+                    filteredPastas.add(pastas);
+                }
+            }
+            return filteredPastas;
+        }else {
+            return pasta;
+        }
     }
 
     public Drinks getOnePasta(Integer id) throws RestFoodException {
