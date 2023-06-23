@@ -17,6 +17,7 @@ import java.util.Objects;
 @RestController
 @Log4j2
 @RequestMapping("/drinks")
+@CrossOrigin(origins = "http://localhost:3000/")
 public class DrinkWeb {
     @Autowired
     private DrinkService service;

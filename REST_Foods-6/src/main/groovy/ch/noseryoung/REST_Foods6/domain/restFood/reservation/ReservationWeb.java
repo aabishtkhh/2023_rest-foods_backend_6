@@ -17,6 +17,7 @@ import java.util.Objects;
 @RestController
 @Log4j2
 @RequestMapping("/reservation")
+@CrossOrigin(origins = "http://localhost:3000/")
 public class ReservationWeb {
     @Autowired
     private ReservationService service;
