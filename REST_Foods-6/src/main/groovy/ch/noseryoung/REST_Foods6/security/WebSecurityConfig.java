@@ -36,7 +36,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 // No authentication required for getting product(s)
-                .antMatchers(HttpMethod.GET, "/RestFoods/**").permitAll() //permits the user to do anything they want
+                .antMatchers(HttpMethod.GET, "/**").permitAll() //permits the user to do anything they want
 
                 .anyRequest()
                 .authenticated()

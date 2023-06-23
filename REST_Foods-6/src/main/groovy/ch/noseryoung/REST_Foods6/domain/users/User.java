@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_id")
+    @Column(name="user_Id")
     private Integer user_Id;
     @Column(name="name")
     private String usrName;
@@ -20,7 +20,7 @@ public class User {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinTable(
             name = "restfood_users_roles",
-            joinColumns = @JoinColumn (name = "user_id", referencedColumnName = "user_id"),
+            joinColumns = @JoinColumn (name = "user_Id", referencedColumnName = "user_Id"),
             inverseJoinColumns = @JoinColumn
                     (name = "id_role", referencedColumnName = "id_role")
     )

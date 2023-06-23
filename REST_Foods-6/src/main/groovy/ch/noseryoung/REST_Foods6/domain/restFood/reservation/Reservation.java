@@ -9,12 +9,12 @@ import javax.persistence.Id;
 @Entity
 @Data
 public class Reservation {
-    /*needs to be changed*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer reservationID;
-    private String name;
-    private Integer price;
-    private String description;
-    private String image_url;
+    private String table_name;
+    private String date_of_reservation;
+    private String bookingTime;
+    private Integer peopleAmount;
+    private Integer telefonNr;
 }
