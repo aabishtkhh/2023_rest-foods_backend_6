@@ -22,7 +22,7 @@ public class Drinks {
     @Column(name = "name")
     private String name;
     @Column(name = "price")
-    private Integer price;
+    private Double price;
     @Column(name = "image_url")
     private String image_url;
     @Column(name = "size")

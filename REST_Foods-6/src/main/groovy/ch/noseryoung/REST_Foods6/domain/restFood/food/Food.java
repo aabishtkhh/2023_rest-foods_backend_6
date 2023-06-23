@@ -15,14 +15,14 @@ public class Food {
     @Column(name ="name")
     private String foodName;
     @Column(name = "price")
-    private Integer price;
+    private Double price;
     @Column(name = "description")
     private String description;
     @Column(name = "chefs_choice")
     private Boolean chef_choice;
     @Column(name = "category")
     private String category;
-    @Column(name = "isItPizza")
+    @Column(name = "is_it_pizza")
     private Boolean isItPizza;
     @Column(name = "image_url")
     private String image_url;
@@ -45,11 +45,11 @@ public class Food {
         this.foodName = foodName;
     }
 
-    public Integer getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 }

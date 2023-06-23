@@ -1,9 +1,6 @@
 package ch.noseryoung.REST_Foods6.domain.restFood.reservation;
 
 import ch.noseryoung.REST_Foods6.domain.restFood.RestFoodException;
-import ch.noseryoung.REST_Foods6.domain.restFood.drinks.Drinks;
-import ch.noseryoung.REST_Foods6.domain.restFood.pasta.Pasta;
-import ch.noseryoung.REST_Foods6.domain.restFood.pasta.PastaRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
