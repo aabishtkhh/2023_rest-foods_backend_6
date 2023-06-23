@@ -19,18 +19,21 @@ import java.util.Objects;
 @RequestMapping("/food")
 @CrossOrigin(origins = "http://localhost:3000/")
 public class FoodWeb {
+
+    /**
+     * Removed the @PreAuthorize for GET, because everyone has permission to see all data
+     */
+
     @Autowired
     private FoodService service;
 
     @GetMapping //GET -- READ
-    @PreAuthorize("hasAuthority('GET')")
     @Operation(summary = "Fetches all Foods", description = "When successful it fetches all foods and returns a JSON-Code with the status code 200.")
     public ResponseEntity<List<Food>> allFoods(@RequestParam(value = "name", required = false) String filterName) {
         return ResponseEntity.ok().body(service.getAllFoods(filterName));
     }
 
     @GetMapping(value = "/{foodID}") //GET BY ID
-    @PreAuthorize("hasAuthority('GET')")
     @Operation(summary = "Fetches the desired Food", description = "When successful it fetches the wished food and returns the JSON-Code with the status code 200.")
     public ResponseEntity<Food> oneFood(@PathVariable("foodID") Integer id) throws RestFoodException {
         return ResponseEntity.ok().body(service.getOneFood(id));

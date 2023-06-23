@@ -31,12 +31,16 @@ public class WebSecurityConfig {
         provider.setUserDetailsService(userService);
         return new ProviderManager(provider);
     }
+    /**
+     * In @anyMatches is what everyone has permission to see
+     */
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 // No authentication required for getting product(s)
-                .antMatchers(HttpMethod.GET, "/dashboard/**").permitAll() //permits the user to do anything they want
+                .antMatchers(HttpMethod.GET, "/food/**", "/drinks/**").permitAll() //permits all user to do anything they want
+                .antMatchers(HttpMethod.POST, "/reservation/**").permitAll()
 
                 .anyRequest()
                 .authenticated()

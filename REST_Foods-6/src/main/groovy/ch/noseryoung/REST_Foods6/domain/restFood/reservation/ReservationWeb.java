@@ -19,6 +19,10 @@ import java.util.Objects;
 @RequestMapping("/reservation")
 @CrossOrigin(origins = "http://localhost:3000/")
 public class ReservationWeb {
+
+    /**
+     * Removed the @PreAuthorize for Post, because everyone has permission to post their data
+     */
     @Autowired
     private ReservationService service;
 
@@ -37,7 +41,6 @@ public class ReservationWeb {
     }
 
     @PostMapping //POST -- CREATE
-    @PreAuthorize("hasAuthority('POST')")
     @Operation(summary = "Creates a Reservation", description = "When successful it creates a reservation with the wished values and returns the JSON-Code of created reservation with the status code 200.")
     public ResponseEntity<Reservation> createReservation(@Valid @RequestBody() Reservation reservation) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.postAReservation(reservation));

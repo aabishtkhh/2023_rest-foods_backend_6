@@ -22,15 +22,17 @@ public class DrinkWeb {
     @Autowired
     private DrinkService service;
 
+    /**
+     * Removed the @PreAuthorize for GET, because everyone has permission to see all data
+     */
+
     @GetMapping //GET -- READ
-    @PreAuthorize("hasAuthority('GET')")
     @Operation(summary = "Fetches all Drinks", description = "When successful it fetches all drinks and returns a JSON-Code with the status code 200.")
     public ResponseEntity<List<Drinks>> allDrinks(@RequestParam(value = "name", required = false) String filterName) {
         return ResponseEntity.ok().body(service.getAllDrinks(filterName));
     }
 
     @GetMapping(value = "/{drinkID}") //GET BY ID
-    @PreAuthorize("hasAuthority('GET')")
     @Operation(summary = "Fetches the desired Drink", description = "When successful it fetches the wished drink and returns the JSON-Code with the status code 200.")
     public ResponseEntity<Drinks> oneDrink (@PathVariable("drinkID") Integer id) throws RestFoodException {
         return ResponseEntity.ok().body(service.getOneDrink(id));
