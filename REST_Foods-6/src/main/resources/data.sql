@@ -17,7 +17,7 @@ VALUES ('Cola', 3.5,
         500),
        ('Fanta', 4.5, 'https://c-pi.niceshops.com/upload/image/product/large/default/45840_b68ef69a.512x512.jpg', 500),
        ('Sprite', 4, 'https://c-pi.niceshops.com/upload/image/product/large/default/49891_deefc18c.512x512.jpg', 500),
-       ('Water', 3, '',  300),
+       ('Water', 3, 'https://westferry.fodal.co.uk/wp-content/uploads/2021/12/evian-50cl-800x800.png',  300),
        ('Pepsi', 3, 'https://m.media-amazon.com/images/I/51pGxfs4w1L.jpg', 500),
        ('Ice Tea', 3, 'https://natashaskitchen.com/wp-content/uploads/2021/07/Iced-Tea-3-1.jpg', 500),
        ('Wein', 5, 'https://www.varta-guide.de/wp-content/uploads/2018/03/wein-trauben.jpg', 500);
