@@ -42,11 +42,7 @@ public class FoodService {
                     }
                 }
             }else {
-                for (Food food: filteredFoods) {
-                    if (!food.getFoodName().equals(filterName)) {
-                        filteredFoods.remove(food);
-                    }
-                }
+                filteredFoods.removeIf(food -> !food.getFoodName().equals(filterName));
             }
         }
         if (filterApplied){

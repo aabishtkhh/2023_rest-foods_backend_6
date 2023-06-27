@@ -7,7 +7,7 @@ VALUES
     ('Carbonara', 19, 'Pecorino Romano Käse, Sahne, Frühlingszwiebeln, Eier, schwarzer Pfeffer', true, 'main', true , 'https://sushi24.ge/images/thumbs/0001700_carbonara-pizza-33-cm_510.jpeg', 20),
 
     ('Spagetti', 20, 'Tomaten, Basilikum, Mozzarella', false, 'main', true, 'https://thekitchengirl.com/wp-content/uploads/Instant-Pot-Spaghetti-B_89.jpg', 7),
-    ('Ravioli', 15, 'Cream, Parmesan Käse, Schalotte, Schinken *Auch Ohne Schinken Verfügbar*', false, 'main', false, 'https://anitalianinmykitchen.com/wp-content/uploads/2022/09/mushroom-rav-sq-1-of-1.jpg', 8),
+    ('Ravioli', 15, 'Cream, Parmesan Käse, Schalotte, Schinken *Auch Ohne Schinken Verfügbar*', true, 'main', false, 'https://anitalianinmykitchen.com/wp-content/uploads/2022/09/mushroom-rav-sq-1-of-1.jpg', 8),
     ('Tortellini', 15, 'Cream, Gemüsebouillon, Schinken *Auch Ohne Schinken Verfügbar*', false, 'main', false, 'https://plantifullybasedblog.com/wp-content/uploads/2019/03/tortellini-image.png', 8),
     ('Cappelletti', 15, 'Cream, Parmigiano Käse, Mangold, Thymian, Gelbzwiebel', false, 'main', false, 'https://images.squarespace-cdn.com/content/v1/5ea9a4e382294041c8e958f5/1611574637113-Q7P04WLU6Y9XV4NRMZXU/cappelletti.jpg', 6);
 
