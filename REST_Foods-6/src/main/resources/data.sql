@@ -6,10 +6,10 @@ VALUES
     ('Funghi', 17.5, 'Tomatensauce, Mozzarella, frische Champignons', false, 'main', true, 'https://media.istockphoto.com/id/1170797228/photo/pizza-with-mushrooms-on-dark-grey-concrete-table.jpg?s=612x612&w=0&k=20&c=fYRNQR_96SDtZlUMNscT1n38nSlKTVpk3DpwCSXakk0=', 20),
     ('Carbonara', 19, 'Pecorino Romano Käse, Sahne, Frühlingszwiebeln, Eier, schwarzer Pfeffer', true, 'main', true , 'https://sushi24.ge/images/thumbs/0001700_carbonara-pizza-33-cm_510.jpeg', 20),
 
-    ('Spagetti', 20, 'Tomaten, Basilikum, Mozzarella', false, 'main', false, 'https://thekitchengirl.com/wp-content/uploads/Instant-Pot-Spaghetti-B_89.jpg', 7),
-    ('Ravioli', 15, 'Cream, Parmesan Käse, Schalotte, Schinken *Auch Ohne Schinken Verfügbar*', true, 'main', false, 'https://anitalianinmykitchen.com/wp-content/uploads/2022/09/mushroom-rav-sq-1-of-1.jpg', 8),
-    ('Tortellini', 15, 'Cream, Gemüsebouillon, Schinken *Auch Ohne Schinken Verfügbar*', true, 'main', false, 'https://plantifullybasedblog.com/wp-content/uploads/2019/03/tortellini-image.png', 8),
-    ('Cappelletti', 15, 'Cream, Parmigiano Käse, Mangold, Thymian, Gelbzwiebel', true, 'main', false, 'https://images.squarespace-cdn.com/content/v1/5ea9a4e382294041c8e958f5/1611574637113-Q7P04WLU6Y9XV4NRMZXU/cappelletti.jpg', 6);
+    ('Spagetti', 20, 'Tomaten, Basilikum, Mozzarella', false, 'main', true, 'https://thekitchengirl.com/wp-content/uploads/Instant-Pot-Spaghetti-B_89.jpg', 7),
+    ('Ravioli', 15, 'Cream, Parmesan Käse, Schalotte, Schinken *Auch Ohne Schinken Verfügbar*', false, 'main', false, 'https://anitalianinmykitchen.com/wp-content/uploads/2022/09/mushroom-rav-sq-1-of-1.jpg', 8),
+    ('Tortellini', 15, 'Cream, Gemüsebouillon, Schinken *Auch Ohne Schinken Verfügbar*', false, 'main', false, 'https://plantifullybasedblog.com/wp-content/uploads/2019/03/tortellini-image.png', 8),
+    ('Cappelletti', 15, 'Cream, Parmigiano Käse, Mangold, Thymian, Gelbzwiebel', false, 'main', false, 'https://images.squarespace-cdn.com/content/v1/5ea9a4e382294041c8e958f5/1611574637113-Q7P04WLU6Y9XV4NRMZXU/cappelletti.jpg', 6);
 
 INSERT INTO drinks ("name", price, image_url, "size")
 VALUES ('Cola', 3.5,

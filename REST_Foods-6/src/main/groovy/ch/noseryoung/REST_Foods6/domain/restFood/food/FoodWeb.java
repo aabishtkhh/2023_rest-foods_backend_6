@@ -23,14 +23,14 @@ public class FoodWeb {
     /**
      * Removed the @PreAuthorize for GET, because everyone has permission to see all data
      */
-
     @Autowired
     private FoodService service;
 
     @GetMapping //GET -- READ
     @Operation(summary = "Fetches all Foods", description = "When successful it fetches all foods and returns a JSON-Code with the status code 200.")
-    public ResponseEntity<List<Food>> allFoods(@RequestParam(value = "name", required = false) String filterName) {
-        return ResponseEntity.ok().body(service.getAllFoods(filterName));
+    public ResponseEntity<List<Food>> allFoods(@RequestParam(value = "name", required = false) String filterName, @RequestParam(value = "chefsChoice", required = false) Boolean chefChoice) {
+        System.out.println(chefChoice);
+        return ResponseEntity.ok().body(service.getAllFoods(filterName, chefChoice));
     }
 
     @GetMapping(value = "/{foodID}") //GET BY ID
