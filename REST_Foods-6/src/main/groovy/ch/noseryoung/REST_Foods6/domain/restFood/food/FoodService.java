@@ -17,6 +17,7 @@ import java.util.List;
 @Log4j2
 public class FoodService {
     @Autowired
+
     private FoodRepository repository;
 
     public List<Food> getAllFoods(String filterName) {
