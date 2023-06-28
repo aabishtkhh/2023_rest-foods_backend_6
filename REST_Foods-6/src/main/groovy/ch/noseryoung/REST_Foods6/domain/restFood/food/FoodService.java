@@ -20,17 +20,33 @@ public class FoodService {
 
     private FoodRepository repository;
 
-    public List<Food> getAllFoods(String filterName) {
+    public List<Food> getAllFoods(String filterName, Boolean chef_Choice) {
         log.info("All foods shown");
         List<Food> foods;
         List<Food> filteredFoods = new ArrayList<>();
+        Boolean filterApplied = false;
         foods = repository.findAll();
-        if (filterName != null){
-            for (Food pizza: foods) {
-                if (pizza.getFoodName().equals(filterName)){
-                    filteredFoods.add(pizza);
+        if (chef_Choice != null){
+            filterApplied = true;
+            for (Food food: foods) {
+                if (food.getChef_choice().equals(chef_Choice)){
+                    filteredFoods.add(food);
                 }
             }
+        }
+        if (filterName != null){
+            if (!filterApplied){
+                filterApplied = true;
+                for (Food food: foods) {
+                    if (food.getFoodName().equals(filterName)) {
+                        filteredFoods.add(food);
+                    }
+                }
+            }else {
+                filteredFoods.removeIf(food -> !food.getFoodName().equals(filterName));
+            }
+        }
+        if (filterApplied){
             return filteredFoods;
         }else {
             return foods;

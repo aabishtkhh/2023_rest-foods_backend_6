@@ -20,7 +20,8 @@ VALUES ('Cola', 3.5,
        ('Water', 3, 'https://westferry.fodal.co.uk/wp-content/uploads/2021/12/evian-50cl-800x800.png',  300),
        ('Pepsi', 3, 'https://m.media-amazon.com/images/I/51pGxfs4w1L.jpg', 500),
        ('Ice Tea', 3, 'https://natashaskitchen.com/wp-content/uploads/2021/07/Iced-Tea-3-1.jpg', 500),
-       ('Win', 5, 'https://www.varta-guide.de/wp-content/uploads/2018/03/wein-trauben.jpg', 500);
+       ('Wine', 5, 'https://www.varta-guide.de/wp-content/uploads/2018/03/wein-trauben.jpg', 500),
+       ('Tee', 5, 'https://naturkost.de/wd/wp-content/uploads/2016/06/tee-fotolia-1024x640.jpg', 500);
 
 -- users
 INSERT INTO restfood_users(user_Id, name, password)
